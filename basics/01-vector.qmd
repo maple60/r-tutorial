@@ -1,0 +1,57 @@
+---
+title: "Vectors"
+# Purpose: Teach beginner vector creation, indexing, summaries, and logical checks.
+---
+
+{{< include ../_extensions/r-wasm/live/_knitr.qmd >}}
+
+<!-- Purpose: This lesson introduces vectors with simple plant measurement examples. -->
+
+A vector stores values of the same general type. In plant science, one vector
+might hold heights, leaf counts, or treatment names.
+
+## Numeric vectors
+
+```{webr}
+#| autorun: true
+height_cm <- c(12.1, 14.5, 13.8, 16.2, 15.4)
+
+height_cm
+length(height_cm)
+mean(height_cm)
+```
+
+## Indexing
+
+Use square brackets to select part of a vector.
+
+```{webr}
+height_cm <- c(12.1, 14.5, 13.8, 16.2, 15.4)
+
+height_cm[1]
+height_cm[2:4]
+height_cm[c(1, 5)]
+```
+
+## Logical checks
+
+Logical vectors help you filter values.
+
+```{webr}
+height_cm <- c(12.1, 14.5, 13.8, 16.2, 15.4)
+
+tall <- height_cm >= 15
+tall
+height_cm[tall]
+```
+
+## Try it
+
+Change the threshold from `15` to another value.
+
+```{webr}
+height_cm <- c(12.1, 14.5, 13.8, 16.2, 15.4)
+
+threshold <- 15
+height_cm[height_cm >= threshold]
+```

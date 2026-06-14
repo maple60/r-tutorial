@@ -1,0 +1,37 @@
+---
+title: "Interactive Base R Tutorial"
+# Purpose: Introduce the tutorial and provide the first browser-based R example.
+---
+
+{{< include ./_extensions/r-wasm/live/_knitr.qmd >}}
+
+<!-- Purpose: This page gives beginners the scope of the tutorial and a first editable webR cell. -->
+
+This site is a small, browser-based introduction to Base R for ecology and plant
+science. Each page uses interactive R cells that run in your browser with webR,
+so you can edit and run code without installing R first.
+
+The first lessons focus on the pieces used in many simple analyses:
+
+- vectors for storing measurements
+- data frames for rectangular data
+- base plots for quick visual checks
+- short exercises for practice
+
+## Try R in the browser
+
+Click **Run Code**, then change one of the plant heights and run it again.
+
+```{webr}
+#| autorun: true
+height_cm <- c(12.1, 14.5, 13.8, 16.2, 15.4)
+
+mean(height_cm)
+range(height_cm)
+```
+
+## Small tutorial dataset
+
+The site includes a small CSV file at `data/plant_growth.csv`. Later pages use
+it to practice reading data, summarizing plant growth, and making quick Base R
+plots.

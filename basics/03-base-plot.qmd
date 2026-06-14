@@ -1,0 +1,66 @@
+---
+title: "Base Plots"
+# Purpose: Teach simple Base R plotting for plant growth data.
+---
+
+{{< include ../_extensions/r-wasm/live/_knitr.qmd >}}
+
+<!-- Purpose: This lesson shows quick visual checks with Base R plotting functions. -->
+
+Base R plots are useful for fast exploration. You can make a scatter plot,
+boxplot, or simple trend plot without extra packages.
+
+## Scatter plot
+
+```{webr}
+#| autorun: true
+plants <- read.csv("data/plant_growth.csv")
+
+treatment_id <- as.integer(factor(plants$treatment))
+plot(
+  plants$day,
+  plants$height_cm,
+  pch = 19,
+  col = treatment_id,
+  xlab = "Day",
+  ylab = "Height (cm)",
+  main = "Plant height through time"
+)
+legend(
+  "topleft",
+  legend = levels(factor(plants$treatment)),
+  col = seq_along(levels(factor(plants$treatment))),
+  pch = 19,
+  bty = "n"
+)
+```
+
+## Boxplot
+
+```{webr}
+plants <- read.csv("data/plant_growth.csv")
+
+boxplot(
+  height_cm ~ treatment,
+  data = plants,
+  xlab = "Treatment",
+  ylab = "Height (cm)",
+  main = "Height by treatment"
+)
+```
+
+## Add a simple fitted line
+
+```{webr}
+plants <- read.csv("data/plant_growth.csv")
+
+plot(
+  plants$day,
+  plants$height_cm,
+  pch = 19,
+  xlab = "Day",
+  ylab = "Height (cm)",
+  main = "Overall growth trend"
+)
+abline(lm(height_cm ~ day, data = plants), col = "blue", lwd = 2)
+```

@@ -1,0 +1,13 @@
+plant_id,species,treatment,day,height_cm,leaf_count
+P01,Arabidopsis thaliana,control,7,2.1,4
+P02,Arabidopsis thaliana,control,14,4.8,7
+P03,Arabidopsis thaliana,control,21,7.2,10
+P04,Arabidopsis thaliana,fertilized,7,2.4,5
+P05,Arabidopsis thaliana,fertilized,14,5.6,8
+P06,Arabidopsis thaliana,fertilized,21,8.9,13
+P07,Brassica rapa,control,7,3.2,5
+P08,Brassica rapa,control,14,6.1,8
+P09,Brassica rapa,control,21,9.4,12
+P10,Brassica rapa,fertilized,7,3.6,6
+P11,Brassica rapa,fertilized,14,7.3,10
+P12,Brassica rapa,fertilized,21,11.8,15

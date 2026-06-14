@@ -1,0 +1,5 @@
+# Purpose: Keep generated Quarto build artifacts out of source control.
+/.quarto/
+/_site/
+
+**/*.quarto_ipynb

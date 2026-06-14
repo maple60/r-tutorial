@@ -1,0 +1,59 @@
+---
+title: "Vector Exercise"
+# Purpose: Provide beginner practice with vectors, summaries, and logical filtering.
+---
+
+{{< include ../_extensions/r-wasm/live/_knitr.qmd >}}
+
+<!-- Purpose: This page gives short editable exercises that run in the browser. -->
+
+Use the code cells below to practice vector basics. Edit the code, run it, and
+compare the output with what you expected.
+
+## Exercise 1
+
+Create a vector of leaf counts, then calculate the mean and maximum.
+
+```{webr}
+leaf_count <- c(4, 5, 5, 7, 8, 9)
+
+# Add code below this line.
+mean(leaf_count)
+max(leaf_count)
+```
+
+## Exercise 2
+
+Select only the plants with at least 7 leaves.
+
+```{webr}
+leaf_count <- c(4, 5, 5, 7, 8, 9)
+
+# Change the threshold and run the cell again.
+threshold <- 7
+leaf_count[leaf_count >= threshold]
+```
+
+## Exercise 3
+
+Use vector indexing to compare the first and last measurements.
+
+```{webr}
+height_cm <- c(12.1, 14.5, 13.8, 16.2, 15.4)
+
+first_height <- height_cm[1]
+last_height <- height_cm[length(height_cm)]
+
+last_height - first_height
+```
+
+## Optional challenge
+
+Use the bundled CSV and calculate the mean height for day 21 only.
+
+```{webr}
+plants <- read.csv("data/plant_growth.csv")
+
+day_21 <- plants[plants$day == 21, ]
+mean(day_21$height_cm)
+```

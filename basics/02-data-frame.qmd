@@ -1,0 +1,55 @@
+---
+title: "Data Frames"
+# Purpose: Teach beginner data frame inspection, column access, and simple summaries.
+---
+
+{{< include ../_extensions/r-wasm/live/_knitr.qmd >}}
+
+<!-- Purpose: This lesson uses the bundled CSV to introduce rectangular plant data. -->
+
+A data frame stores data in rows and columns. A common ecology workflow is to
+read a CSV file, inspect it, and summarize a measurement by group.
+
+## Read the CSV
+
+```{webr}
+#| autorun: true
+plants <- read.csv("data/plant_growth.csv")
+
+head(plants)
+str(plants)
+```
+
+## Work with columns
+
+The `$` operator selects one column.
+
+```{webr}
+plants <- read.csv("data/plant_growth.csv")
+
+plants$height_cm
+mean(plants$height_cm)
+max(plants$leaf_count)
+```
+
+## Summarize by treatment
+
+`aggregate()` is a useful Base R function for grouped summaries.
+
+```{webr}
+plants <- read.csv("data/plant_growth.csv")
+
+aggregate(height_cm ~ treatment, data = plants, FUN = mean)
+aggregate(leaf_count ~ treatment, data = plants, FUN = mean)
+```
+
+## Filter rows
+
+Use a logical condition to select rows.
+
+```{webr}
+plants <- read.csv("data/plant_growth.csv")
+
+late_plants <- plants[plants$day == 21, ]
+late_plants
+```

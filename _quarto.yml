@@ -1,0 +1,40 @@
+# Purpose: Define the Quarto website, live HTML output, shared data resources, and sidebar navigation.
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "Base R for Ecology and Plant Science"
+  sidebar:
+    style: docked
+    search: true
+    contents:
+      - text: "Overview"
+        href: index.qmd
+      - section: "Basics"
+        contents:
+          - text: "Vectors"
+            href: basics/01-vector.qmd
+          - text: "Data frames"
+            href: basics/02-data-frame.qmd
+          - text: "Base plots"
+            href: basics/03-base-plot.qmd
+      - section: "Exercises"
+        contents:
+          - text: "Vector exercise"
+            href: exercises/01-vector-exercise.qmd
+
+format:
+  live-html:
+    theme: cosmo
+    toc: true
+    code-copy: true
+
+engine: knitr
+
+resources:
+  - data
+
+webr:
+  resources:
+    - data/plant_growth.csv
