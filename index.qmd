@@ -1,37 +1,43 @@
 ---
-title: "Interactive Base R Tutorial"
-# Purpose: Introduce the tutorial and provide the first browser-based R example.
+title: "インタラクティブBase R入門"
+# Purpose: Introduce the Japanese source tutorial and provide the first browser-based R example.
 ---
 
 {{< include ./_extensions/r-wasm/live/_knitr.qmd >}}
 
-<!-- Purpose: This page gives beginners the scope of the tutorial and a first editable webR cell. -->
+<!-- Purpose: This page gives beginners the scope of the Japanese source tutorial and a first editable webR cell. -->
 
-This site is a small, browser-based introduction to Base R for ecology and plant
-science. Each page uses interactive R cells that run in your browser with webR,
-so you can edit and run code without installing R first.
+このサイトは、生態学・植物科学を学ぶ人のためのBase R入門です。
+各ページにはブラウザ上で動くRコードセルがあります。Rをまだ自分のPCに
+インストールしていなくても、コードを書き換えて実行できます。
 
-The first lessons focus on the pieces used in many simple analyses:
+最初の教材では、簡単なデータ解析でよく使う内容にしぼって扱います。
 
-- vectors for storing measurements
-- data frames for rectangular data
-- base plots for quick visual checks
-- short exercises for practice
+- 測定値を保存するベクトル
+- 表形式データを扱うデータフレーム
+- データを素早く確認するBase Rの作図
+- 短い練習問題
 
-## Try R in the browser
+## このサイトの運用方針
 
-Click **Run Code**, then change one of the plant heights and run it again.
+このサイトでは、日本語版を正本として更新します。英語版は内容が固まった
+タイミングで、将来 `en/` 以下に日本語版から同期して追加します。
+
+## ブラウザでRを試す
+
+**Run Code** を押してから、草丈の値を1つ変えてもう一度実行してみましょう。
 
 ```{webr}
 #| autorun: true
+# 草丈の測定値
 height_cm <- c(12.1, 14.5, 13.8, 16.2, 15.4)
 
 mean(height_cm)
 range(height_cm)
 ```
 
-## Small tutorial dataset
+## 小さな教材用データ
 
-The site includes a small CSV file at `data/plant_growth.csv`. Later pages use
-it to practice reading data, summarizing plant growth, and making quick Base R
-plots.
+このサイトには `data/plant_growth.csv` という小さなCSVファイルを入れています。
+後のページでは、このデータを使ってCSVの読み込み、植物成長データの要約、
+Base Rによる簡単な作図を練習します。

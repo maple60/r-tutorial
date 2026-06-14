@@ -1,16 +1,17 @@
 ---
-title: "Data Frames"
-# Purpose: Teach beginner data frame inspection, column access, and simple summaries.
+title: "データフレーム"
+# Purpose: Teach beginner data frame inspection, column access, and simple summaries in Japanese.
 ---
 
 {{< include ../_extensions/r-wasm/live/_knitr.qmd >}}
 
 <!-- Purpose: This lesson uses the bundled CSV to introduce rectangular plant data. -->
 
-A data frame stores data in rows and columns. A common ecology workflow is to
-read a CSV file, inspect it, and summarize a measurement by group.
+データフレームは、行と列を持つ表形式のデータです。生態学の解析では、
+CSVファイルを読み込み、データの中身を確認し、処理区ごとに測定値を
+要約する流れがよく出てきます。
 
-## Read the CSV
+## CSVを読み込む
 
 ```{webr}
 #| autorun: true
@@ -20,9 +21,9 @@ head(plants)
 str(plants)
 ```
 
-## Work with columns
+## 列を取り出す
 
-The `$` operator selects one column.
+`$` を使うと、データフレームから1つの列を取り出せます。
 
 ```{webr}
 plants <- read.csv("data/plant_growth.csv")
@@ -32,9 +33,9 @@ mean(plants$height_cm)
 max(plants$leaf_count)
 ```
 
-## Summarize by treatment
+## 処理区ごとに要約する
 
-`aggregate()` is a useful Base R function for grouped summaries.
+`aggregate()` は、グループごとに平均などを計算したいときに便利なBase Rの関数です。
 
 ```{webr}
 plants <- read.csv("data/plant_growth.csv")
@@ -43,9 +44,9 @@ aggregate(height_cm ~ treatment, data = plants, FUN = mean)
 aggregate(leaf_count ~ treatment, data = plants, FUN = mean)
 ```
 
-## Filter rows
+## 行を絞り込む
 
-Use a logical condition to select rows.
+条件式を使うと、条件に合う行だけを取り出せます。
 
 ```{webr}
 plants <- read.csv("data/plant_growth.csv")

@@ -1,7 +1,6 @@
 <!-- Purpose: Document the small CSV dataset used by the interactive tutorial pages. -->
 
-# Plant growth dataset
+# 植物成長データ
 
-`plant_growth.csv` is a small teaching dataset for browser-based Base R examples.
-It contains plant height and leaf count measurements for two species, two
-treatments, and three observation days.
+`plant_growth.csv` は、ブラウザ上でBase Rを練習するための小さな教材用データです。
+2種、2つの処理区、3つの観察日の草丈と葉数を含みます。

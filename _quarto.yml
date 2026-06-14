@@ -1,27 +1,27 @@
-# Purpose: Define the Quarto website, live HTML output, shared data resources, and sidebar navigation.
+# Purpose: Define the Japanese source website, live HTML output, shared data resources, and sidebar navigation.
 project:
   type: website
   output-dir: _site
 
 website:
-  title: "Base R for Ecology and Plant Science"
+  title: "生態学・植物科学のためのBase R"
   sidebar:
     style: docked
     search: true
     contents:
-      - text: "Overview"
+      - text: "概要"
         href: index.qmd
-      - section: "Basics"
+      - section: "基礎"
         contents:
-          - text: "Vectors"
+          - text: "ベクトル"
             href: basics/01-vector.qmd
-          - text: "Data frames"
+          - text: "データフレーム"
             href: basics/02-data-frame.qmd
-          - text: "Base plots"
+          - text: "Base Rの作図"
             href: basics/03-base-plot.qmd
-      - section: "Exercises"
+      - section: "練習問題"
         contents:
-          - text: "Vector exercise"
+          - text: "ベクトルの練習"
             href: exercises/01-vector-exercise.qmd
 
 format:
@@ -30,6 +30,7 @@ format:
     toc: true
     code-copy: true
 
+lang: ja
 engine: knitr
 
 resources:

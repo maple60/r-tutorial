@@ -1,21 +1,22 @@
 ---
-title: "Base Plots"
-# Purpose: Teach simple Base R plotting for plant growth data.
+title: "Base Rの作図"
+# Purpose: Teach simple Base R plotting for plant growth data in Japanese.
 ---
 
 {{< include ../_extensions/r-wasm/live/_knitr.qmd >}}
 
 <!-- Purpose: This lesson shows quick visual checks with Base R plotting functions. -->
 
-Base R plots are useful for fast exploration. You can make a scatter plot,
-boxplot, or simple trend plot without extra packages.
+Base Rの作図関数は、データを素早く確認したいときに便利です。追加パッケージを
+使わなくても、散布図、箱ひげ図、簡単な傾向線を描けます。
 
-## Scatter plot
+## 散布図
 
 ```{webr}
 #| autorun: true
 plants <- read.csv("data/plant_growth.csv")
 
+# 日本語フォント環境に左右されにくいよう、図中ラベルは英語にしています。
 treatment_id <- as.integer(factor(plants$treatment))
 plot(
   plants$day,
@@ -35,7 +36,7 @@ legend(
 )
 ```
 
-## Boxplot
+## 箱ひげ図
 
 ```{webr}
 plants <- read.csv("data/plant_growth.csv")
@@ -49,7 +50,7 @@ boxplot(
 )
 ```
 
-## Add a simple fitted line
+## 簡単な傾向線を追加する
 
 ```{webr}
 plants <- read.csv("data/plant_growth.csv")

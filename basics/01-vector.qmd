@@ -1,19 +1,20 @@
 ---
-title: "Vectors"
-# Purpose: Teach beginner vector creation, indexing, summaries, and logical checks.
+title: "ベクトル"
+# Purpose: Teach beginner vector creation, indexing, summaries, and logical checks in Japanese.
 ---
 
 {{< include ../_extensions/r-wasm/live/_knitr.qmd >}}
 
 <!-- Purpose: This lesson introduces vectors with simple plant measurement examples. -->
 
-A vector stores values of the same general type. In plant science, one vector
-might hold heights, leaf counts, or treatment names.
+ベクトルは、同じ種類の値をまとめて保存する入れ物です。植物科学では、
+草丈、葉の枚数、処理区名などをベクトルとして扱えます。
 
-## Numeric vectors
+## 数値ベクトル
 
 ```{webr}
 #| autorun: true
+# 草丈の測定値
 height_cm <- c(12.1, 14.5, 13.8, 16.2, 15.4)
 
 height_cm
@@ -21,9 +22,9 @@ length(height_cm)
 mean(height_cm)
 ```
 
-## Indexing
+## 要素を取り出す
 
-Use square brackets to select part of a vector.
+角かっこ `[]` を使うと、ベクトルの一部だけを取り出せます。
 
 ```{webr}
 height_cm <- c(12.1, 14.5, 13.8, 16.2, 15.4)
@@ -33,21 +34,22 @@ height_cm[2:4]
 height_cm[c(1, 5)]
 ```
 
-## Logical checks
+## 条件で取り出す
 
-Logical vectors help you filter values.
+条件式を使うと、条件に合う値だけを取り出せます。
 
 ```{webr}
 height_cm <- c(12.1, 14.5, 13.8, 16.2, 15.4)
 
+# 15 cm以上かどうかを調べる
 tall <- height_cm >= 15
 tall
 height_cm[tall]
 ```
 
-## Try it
+## 試してみよう
 
-Change the threshold from `15` to another value.
+`threshold` の値を `15` から別の数に変えて、結果がどう変わるか確認しましょう。
 
 ```{webr}
 height_cm <- c(12.1, 14.5, 13.8, 16.2, 15.4)
