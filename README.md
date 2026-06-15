@@ -2,7 +2,7 @@
 
 # 生態学・植物科学のためのBase R
 
-このリポジトリは、Quartoとquarto-live/webRで作るインタラクティブな
+このリポジトリは、Quarto bookとquarto-live/webRで作るインタラクティブな
 Base Rチュートリアルです。
 
 ## 更新方針

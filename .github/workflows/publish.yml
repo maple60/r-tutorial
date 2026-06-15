@@ -1,5 +1,5 @@
-# Purpose: Render the Quarto website from main and publish the _site folder to GitHub Pages.
-name: Publish Quarto site
+# Purpose: Render the Quarto book from main and publish the _site folder to GitHub Pages.
+name: Publish Quarto book
 
 on:
   workflow_dispatch:
@@ -31,7 +31,7 @@ jobs:
       - name: Install render dependencies
         run: Rscript -e 'install.packages(c("knitr", "rmarkdown"), repos = Sys.getenv("RSPM", "https://cloud.r-project.org"))'
 
-      - name: Render site
+      - name: Render book
         run: quarto render
 
       - name: Configure GitHub Pages
@@ -39,7 +39,7 @@ jobs:
         with:
           enablement: true
 
-      - name: Upload site artifact
+      - name: Upload book artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: _site
