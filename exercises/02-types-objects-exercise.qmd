@@ -1,0 +1,43 @@
+---
+title: "練習：型とオブジェクト"
+# Purpose: Practice common object types and inspection functions.
+---
+
+{{< include ../_extensions/r-wasm/live/_knitr.qmd >}}
+
+数値、文字、論理値、factorを作り、型を確認します。
+
+## 課題
+
+- 草丈 `height_cm` に数値を保存する。
+- 種名 `species` に文字を保存する。
+- 肥料ありかどうかを `is_fertilized` に論理値で保存する。
+- 処理区のベクトルをfactorにする。
+- `class()` と `str()` で中身を確認する。
+
+## ヒント
+
+- 文字は `" "` で囲みます。
+- 論理値は `TRUE` または `FALSE` です。
+- `factor()` はカテゴリを表すときに使います。
+
+## 作業用セル
+
+```{webr}
+# ここにコードを書いてみましょう
+```
+
+## 解答例
+
+```{webr}
+height_cm <- 4.8
+species <- "Arabidopsis thaliana"
+is_fertilized <- FALSE
+treatment <- factor(c("control", "fertilized", "control"))
+
+class(height_cm)
+class(species)
+class(is_fertilized)
+class(treatment)
+str(treatment)
+```

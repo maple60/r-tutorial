@@ -1,0 +1,40 @@
+---
+title: "練習：CSVファイルの読み込み"
+# Purpose: Practice importing and checking the bundled CSV.
+---
+
+{{< include ../_extensions/r-wasm/live/_knitr.qmd >}}
+
+教材用CSVを読み込み、行・列・型を確認します。
+
+## 課題
+
+- `data/plant_growth.csv` を `plants` に読み込む。
+- 最初の数行を表示する。
+- 列名と行列数を確認する。
+- `str()` で構造を確認する。
+- 処理区ごとの行数を数える。
+
+## ヒント
+
+- 読み込みは `read.csv("data/plant_growth.csv")` です。
+- 行列数は `dim()` です。
+- 数えるには `table()` を使います。
+
+## 作業用セル
+
+```{webr}
+# ここにコードを書いてみましょう
+```
+
+## 解答例
+
+```{webr}
+plants <- read.csv("data/plant_growth.csv")
+
+head(plants)
+names(plants)
+dim(plants)
+str(plants)
+table(plants$treatment)
+```

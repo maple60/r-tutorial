@@ -1,0 +1,38 @@
+---
+title: "練習：Rの基本操作"
+# Purpose: Practice comments, assignment, object names, and simple calculations.
+---
+
+{{< include ../_extensions/r-wasm/live/_knitr.qmd >}}
+
+Rの基本操作を短く練習します。コードを書き換えてから実行してください。
+
+## 課題
+
+- 草丈 `height_cm` に `3.2` を保存する。
+- 葉数 `leaf_count` に `5` を保存する。
+- 1週間後の草丈 `height_next_week` に `6.1` を保存する。
+- 草丈の増加量を計算して `growth` に保存する。
+
+## ヒント
+
+- 代入には `<-` を使います。
+- 増加量は「後の値 - 前の値」です。
+- `#` から右側にはメモを書けます。
+
+## 作業用セル
+
+```{webr}
+# ここにコードを書いてみましょう
+```
+
+## 解答例
+
+```{webr}
+height_cm <- 3.2
+leaf_count <- 5
+height_next_week <- 6.1
+
+growth <- height_next_week - height_cm
+growth
+```

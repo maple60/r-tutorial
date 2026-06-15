@@ -1,0 +1,56 @@
+---
+title: "ベクトル"
+# Purpose: Teach beginner vector creation, indexing, summaries, and logical extraction.
+---
+
+{{< include ../_extensions/r-wasm/live/_knitr.qmd >}}
+
+ベクトルは、同じ種類の値をまとめて保存する入れ物です。
+草丈、葉数、処理区名などをまとめて扱うときに使います。
+
+## c() でベクトルを作る
+
+```{webr}
+#| autorun: true
+height_cm <- c(12.1, 14.5, 13.8, 16.2, 15.4)
+
+height_cm
+length(height_cm)
+mean(height_cm)
+```
+
+## 文字のベクトル
+
+文字もベクトルにできます。
+
+```{webr}
+species <- c("Arabidopsis thaliana", "Arabidopsis thaliana", "Brassica rapa")
+
+species
+length(species)
+```
+
+## [] で取り出す
+
+角かっこ `[]` を使うと、ベクトルの一部を取り出せます。
+Rでは、最初の要素は1番目です。
+
+```{webr}
+height_cm <- c(12.1, 14.5, 13.8, 16.2, 15.4)
+
+height_cm[1]
+height_cm[2:4]
+height_cm[c(1, 5)]
+```
+
+## 条件で取り出す
+
+条件式を使うと、条件に合う値だけを取り出せます。
+
+```{webr}
+height_cm <- c(12.1, 14.5, 13.8, 16.2, 15.4)
+
+tall <- height_cm >= 15
+tall
+height_cm[tall]
+```

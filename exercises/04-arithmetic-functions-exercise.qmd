@@ -1,0 +1,44 @@
+---
+title: "練習：四則演算と関数"
+# Purpose: Practice arithmetic, vectorized calculation, and common summary functions.
+---
+
+{{< include ../_extensions/r-wasm/live/_knitr.qmd >}}
+
+測定値を計算し、よく使う関数で要約します。
+
+## 課題
+
+- 草丈のベクトルを作る。
+- 草丈をcmからmmに変換する。
+- 平均、合計、最小値、最大値を計算する。
+- 標準偏差を計算する。
+- 平均を小数1けたに丸める。
+
+## ヒント
+
+- cmからmmは `* 10` です。
+- 平均は `mean()`、標準偏差は `sd()` です。
+- `round(x, 1)` で小数1けたにできます。
+
+## 作業用セル
+
+```{webr}
+# ここにコードを書いてみましょう
+```
+
+## 解答例
+
+```{webr}
+height_cm <- c(2.1, 4.8, 7.2, 2.4, 5.6, 8.9)
+
+height_mm <- height_cm * 10
+height_mm
+
+mean(height_cm)
+sum(height_cm)
+min(height_cm)
+max(height_cm)
+sd(height_cm)
+round(mean(height_cm), 1)
+```

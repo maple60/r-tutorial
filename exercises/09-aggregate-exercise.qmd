@@ -1,0 +1,42 @@
+---
+title: "練習：グループごとの集計"
+# Purpose: Practice table, aggregate, and tapply.
+---
+
+{{< include ../_extensions/r-wasm/live/_knitr.qmd >}}
+
+処理区や観察日ごとに、植物データを集計します。
+
+## 課題
+
+- 種ごとの行数を数える。
+- 処理区ごとの平均草丈を計算する。
+- 処理区ごとの平均葉数を計算する。
+- 処理区と観察日ごとの平均草丈を計算する。
+- `tapply()` で処理区ごとの平均草丈を計算する。
+
+## ヒント
+
+- 数えるには `table()` です。
+- `aggregate(height_cm ~ treatment, data = plants, FUN = mean)` の形を使います。
+- 複数のグループは `treatment + day` と書けます。
+
+## 作業用セル
+
+```{webr}
+# ここにコードを書いてみましょう
+```
+
+## 解答例
+
+```{webr}
+plants <- read.csv("data/plant_growth.csv")
+
+table(plants$species)
+
+aggregate(height_cm ~ treatment, data = plants, FUN = mean)
+aggregate(leaf_count ~ treatment, data = plants, FUN = mean)
+aggregate(height_cm ~ treatment + day, data = plants, FUN = mean)
+
+tapply(plants$height_cm, plants$treatment, mean)
+```

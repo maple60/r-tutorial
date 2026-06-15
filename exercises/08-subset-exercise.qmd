@@ -1,0 +1,41 @@
+---
+title: "練習：データの取り出し・絞り込み"
+# Purpose: Practice data frame subsetting and filtering.
+---
+
+{{< include ../_extensions/r-wasm/live/_knitr.qmd >}}
+
+CSVから読み込んだデータを、条件に合わせて絞り込みます。
+
+## 課題
+
+- 草丈の列だけを取り出す。
+- `day` が21の行だけを取り出す。
+- 処理区が `"fertilized"` の行だけを取り出す。
+- `day` が21で、草丈が8 cmより大きい行を取り出す。
+- `subset()` で対照区の14日目だけを取り出す。
+
+## ヒント
+
+- 列は `plants$height_cm` で取り出せます。
+- 行の条件は `plants[条件, ]` の形です。
+- 複数条件は `&` でつなぎます。
+
+## 作業用セル
+
+```{webr}
+# ここにコードを書いてみましょう
+```
+
+## 解答例
+
+```{webr}
+plants <- read.csv("data/plant_growth.csv")
+
+plants$height_cm
+plants[plants$day == 21, ]
+plants[plants$treatment == "fertilized", ]
+plants[plants$day == 21 & plants$height_cm > 8, ]
+
+subset(plants, treatment == "control" & day == 14)
+```

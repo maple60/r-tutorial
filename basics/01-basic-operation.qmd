@@ -1,0 +1,71 @@
+---
+title: "Rの基本操作"
+# Purpose: Introduce console-like evaluation, comments, assignment, names, and simple calculations.
+---
+
+{{< include ../_extensions/r-wasm/live/_knitr.qmd >}}
+
+Rでは、コードを書いて実行すると、すぐに結果を確認できます。
+このページでは、計算、コメント、代入、オブジェクト名を短く練習します。
+
+## 計算してみる
+
+Rは電卓のように使えます。下のコードを実行して、数字を変えてみましょう。
+
+```{webr}
+#| autorun: true
+2 + 3
+10 - 4
+6 * 7
+20 / 5
+```
+
+## コメントを書く
+
+`#` から右側はコメントです。コードの説明を書くために使います。
+
+```{webr}
+# 草丈をcmで記録する
+12.3
+
+# 葉の数を記録する
+8
+```
+
+## 値に名前をつける
+
+`<-` は「右の値を左の名前に保存する」という意味です。
+保存した名前を、Rではオブジェクトと呼びます。
+
+```{webr}
+height_cm <- 12.3
+leaf_count <- 8
+
+height_cm
+leaf_count
+```
+
+## オブジェクトを使って計算する
+
+保存した値は、あとから何度でも使えます。
+
+```{webr}
+height_day7 <- 2.1
+height_day14 <- 4.8
+
+growth <- height_day14 - height_day7
+growth
+```
+
+## 名前のつけ方
+
+オブジェクト名は、内容がわかる名前にします。
+この教材では、`height_cm` や `leaf_count` のように、英字と `_` を使います。
+
+```{webr}
+plant_id <- "P01"
+height_cm <- 2.1
+
+plant_id
+height_cm
+```

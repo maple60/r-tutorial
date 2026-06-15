@@ -1,0 +1,51 @@
+---
+title: "CSVファイルの読み込み"
+# Purpose: Introduce read.csv and basic checks after importing tabular data.
+---
+
+{{< include ../_extensions/r-wasm/live/_knitr.qmd >}}
+
+CSVファイルは、表形式データを保存するよく使われる形式です。
+この教材では `data/plant_growth.csv` を使います。
+
+## read.csv() で読み込む
+
+```{webr}
+#| autorun: true
+plants <- read.csv("data/plant_growth.csv")
+
+plants
+```
+
+## 行と列を確認する
+
+1行は1つの観察、1列は1つの変数です。
+このデータでは、植物ID、種名、処理区、観察日、草丈、葉数があります。
+
+```{webr}
+plants <- read.csv("data/plant_growth.csv")
+
+head(plants)
+names(plants)
+dim(plants)
+```
+
+## 型を確認する
+
+読み込んだあと、`str()` で列の型を確認します。
+
+```{webr}
+plants <- read.csv("data/plant_growth.csv")
+
+str(plants)
+```
+
+## 簡単に要約する
+
+```{webr}
+plants <- read.csv("data/plant_growth.csv")
+
+mean(plants$height_cm)
+range(plants$day)
+table(plants$treatment)
+```

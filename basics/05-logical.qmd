@@ -1,0 +1,54 @@
+---
+title: "条件式と論理値"
+# Purpose: Introduce comparisons, logical operators, and vector filtering.
+---
+
+{{< include ../_extensions/r-wasm/live/_knitr.qmd >}}
+
+条件式の結果は `TRUE` または `FALSE` になります。
+この論理値を使うと、データの一部を取り出せます。
+
+## 比較する
+
+```{webr}
+#| autorun: true
+height_cm <- c(2.1, 4.8, 7.2, 2.4, 5.6, 8.9)
+
+height_cm > 5
+height_cm >= 5
+height_cm == 4.8
+height_cm != 4.8
+```
+
+## 複数の条件
+
+`&` は「かつ」、`|` は「または」、`!` は「ではない」です。
+
+```{webr}
+height_cm <- c(2.1, 4.8, 7.2, 2.4, 5.6, 8.9)
+leaf_count <- c(4, 7, 10, 5, 8, 13)
+
+height_cm > 5 & leaf_count >= 8
+height_cm > 7 | leaf_count >= 12
+!(height_cm > 5)
+```
+
+## 条件に合う値を取り出す
+
+```{webr}
+height_cm <- c(2.1, 4.8, 7.2, 2.4, 5.6, 8.9)
+
+height_cm[height_cm > 5]
+height_cm[height_cm <= 5]
+```
+
+## 文字の条件
+
+文字も `==` で比較できます。
+
+```{webr}
+treatment <- c("control", "control", "fertilized", "fertilized")
+height_cm <- c(2.1, 4.8, 2.4, 5.6)
+
+height_cm[treatment == "fertilized"]
+```

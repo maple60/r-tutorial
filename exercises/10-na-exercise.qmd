@@ -1,0 +1,44 @@
+---
+title: "練習：欠損値 NA の扱い"
+# Purpose: Practice detecting and removing NA values.
+---
+
+{{< include ../_extensions/r-wasm/live/_knitr.qmd >}}
+
+欠損値 `NA` を含むデータで、確認と集計を練習します。
+
+## 課題
+
+- `NA` を含む草丈ベクトルを作る。
+- `is.na()` で欠損している位置を確認する。
+- 欠損していない値だけを取り出す。
+- `na.rm = TRUE` を使って平均を計算する。
+- データフレームの草丈列にNAを入れ、NAを含む行を表示する。
+
+## ヒント
+
+- `!is.na(x)` は「NAではない」です。
+- `mean(x)` はNAがあるとNAになります。
+- `mean(x, na.rm = TRUE)` でNAを除いて計算できます。
+
+## 作業用セル
+
+```{webr}
+# ここにコードを書いてみましょう
+```
+
+## 解答例
+
+```{webr}
+height_cm <- c(2.1, 4.8, NA, 2.4, 5.6)
+
+is.na(height_cm)
+height_cm[!is.na(height_cm)]
+mean(height_cm, na.rm = TRUE)
+
+plants <- read.csv("data/plant_growth.csv")
+plants$height_with_na <- plants$height_cm
+plants$height_with_na[c(3, 8)] <- NA
+
+plants[is.na(plants$height_with_na), ]
+```

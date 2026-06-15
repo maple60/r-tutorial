@@ -11,18 +11,54 @@ website:
     contents:
       - text: "概要"
         href: index.qmd
-      - section: "基礎"
-        contents:
-          - text: "ベクトル"
-            href: basics/01-vector.qmd
-          - text: "データフレーム"
-            href: basics/02-data-frame.qmd
-          - text: "Base Rの作図"
-            href: basics/03-base-plot.qmd
-      - section: "練習問題"
-        contents:
-          - text: "ベクトルの練習"
-            href: exercises/01-vector-exercise.qmd
+      - text: "1. Rの基本操作"
+        href: basics/01-basic-operation.qmd
+      - text: "1. 練習：Rの基本操作"
+        href: exercises/01-basic-operation-exercise.qmd
+      - text: "2. 型とオブジェクト"
+        href: basics/02-types-objects.qmd
+      - text: "2. 練習：型とオブジェクト"
+        href: exercises/02-types-objects-exercise.qmd
+      - text: "3. ベクトル"
+        href: basics/03-vector.qmd
+      - text: "3. 練習：ベクトル"
+        href: exercises/03-vector-exercise.qmd
+      - text: "4. 四則演算と関数"
+        href: basics/04-arithmetic-functions.qmd
+      - text: "4. 練習：四則演算と関数"
+        href: exercises/04-arithmetic-functions-exercise.qmd
+      - text: "5. 条件式と論理値"
+        href: basics/05-logical.qmd
+      - text: "5. 練習：条件式と論理値"
+        href: exercises/05-logical-exercise.qmd
+      - text: "6. データフレーム"
+        href: basics/06-data-frame.qmd
+      - text: "6. 練習：データフレーム"
+        href: exercises/06-data-frame-exercise.qmd
+      - text: "7. CSVファイルの読み込み"
+        href: basics/07-read-csv.qmd
+      - text: "7. 練習：CSVファイルの読み込み"
+        href: exercises/07-read-csv-exercise.qmd
+      - text: "8. データの取り出し・絞り込み"
+        href: basics/08-subset.qmd
+      - text: "8. 練習：データの取り出し・絞り込み"
+        href: exercises/08-subset-exercise.qmd
+      - text: "9. グループごとの集計"
+        href: basics/09-aggregate.qmd
+      - text: "9. 練習：グループごとの集計"
+        href: exercises/09-aggregate-exercise.qmd
+      - text: "10. 欠損値 NA の扱い"
+        href: basics/10-na.qmd
+      - text: "10. 練習：欠損値 NA の扱い"
+        href: exercises/10-na-exercise.qmd
+      - text: "11. Base Rの作図"
+        href: basics/11-base-plot.qmd
+      - text: "11. 練習：Base Rの作図"
+        href: exercises/11-base-plot-exercise.qmd
+      - text: "12. 小さな解析例"
+        href: basics/12-small-analysis.qmd
+      - text: "12. 練習：小さな解析例"
+        href: exercises/12-small-analysis-exercise.qmd
 
 format:
   live-html:

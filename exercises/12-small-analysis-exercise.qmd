@@ -1,0 +1,57 @@
+---
+title: "練習：小さな解析例"
+# Purpose: Practice a small end-to-end Base R analysis.
+---
+
+{{< include ../_extensions/r-wasm/live/_knitr.qmd >}}
+
+最後に、読み込み、確認、集計、作図、簡単なモデルを順に実行します。
+
+## 課題
+
+- CSVを読み込み、最初の数行と構造を確認する。
+- 処理区と観察日ごとの平均草丈を計算する。
+- 観察日と草丈の散布図を作る。
+- `lm()` で草丈と観察日の関係を調べる。
+- 散布図に回帰直線を追加する。
+
+## ヒント
+
+- 読み込み後は `head()` と `str()` で確認します。
+- 集計は `aggregate()` を使います。
+- モデルは `lm(height_cm ~ day, data = plants)` です。
+
+## 作業用セル
+
+```{webr}
+# ここにコードを書いてみましょう
+```
+
+## 解答例
+
+```{webr}
+plants <- read.csv("data/plant_growth.csv")
+
+head(plants)
+str(plants)
+
+mean_by_treatment_day <- aggregate(
+  height_cm ~ treatment + day,
+  data = plants,
+  FUN = mean
+)
+mean_by_treatment_day
+
+plot(
+  plants$day,
+  plants$height_cm,
+  pch = 19,
+  xlab = "Day",
+  ylab = "Height (cm)",
+  main = "Plant growth"
+)
+
+model <- lm(height_cm ~ day, data = plants)
+summary(model)
+abline(model, col = "blue", lwd = 2)
+```

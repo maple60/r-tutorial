@@ -1,0 +1,46 @@
+---
+title: "グループごとの集計"
+# Purpose: Introduce aggregate, table, and optional tapply for grouped summaries.
+---
+
+{{< include ../_extensions/r-wasm/live/_knitr.qmd >}}
+
+処理区や観察日ごとに平均を出すと、データの傾向が見えやすくなります。
+Base Rでは `aggregate()` や `table()` が便利です。
+
+## table() で数える
+
+```{webr}
+#| autorun: true
+plants <- read.csv("data/plant_growth.csv")
+
+table(plants$treatment)
+table(plants$species, plants$treatment)
+```
+
+## 処理区ごとの平均
+
+```{webr}
+plants <- read.csv("data/plant_growth.csv")
+
+aggregate(height_cm ~ treatment, data = plants, FUN = mean)
+aggregate(leaf_count ~ treatment, data = plants, FUN = mean)
+```
+
+## 処理区と観察日ごとの平均
+
+```{webr}
+plants <- read.csv("data/plant_growth.csv")
+
+aggregate(height_cm ~ treatment + day, data = plants, FUN = mean)
+```
+
+## tapply() でベクトルを集計する
+
+`tapply()` は、1つのベクトルをグループごとに集計する関数です。
+
+```{webr}
+plants <- read.csv("data/plant_growth.csv")
+
+tapply(plants$height_cm, plants$treatment, mean)
+```

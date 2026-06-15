@@ -1,0 +1,43 @@
+---
+title: "練習：条件式と論理値"
+# Purpose: Practice comparisons, logical operators, and logical filtering.
+---
+
+{{< include ../_extensions/r-wasm/live/_knitr.qmd >}}
+
+条件式を使って、測定値の一部を取り出します。
+
+## 課題
+
+- 草丈が5 cmより大きいか調べる。
+- 葉数が8枚以上か調べる。
+- 草丈が5 cmより大きく、葉数が8枚以上の位置を調べる。
+- 草丈が5 cmより大きい値だけを取り出す。
+- 処理区が `"fertilized"` の草丈だけを取り出す。
+
+## ヒント
+
+- 「かつ」は `&` です。
+- 文字の比較にも `==` を使います。
+- 条件の結果は `TRUE` と `FALSE` です。
+
+## 作業用セル
+
+```{webr}
+# ここにコードを書いてみましょう
+```
+
+## 解答例
+
+```{webr}
+height_cm <- c(2.1, 4.8, 7.2, 2.4, 5.6, 8.9)
+leaf_count <- c(4, 7, 10, 5, 8, 13)
+treatment <- c("control", "control", "control", "fertilized", "fertilized", "fertilized")
+
+height_cm > 5
+leaf_count >= 8
+height_cm > 5 & leaf_count >= 8
+
+height_cm[height_cm > 5]
+height_cm[treatment == "fertilized"]
+```

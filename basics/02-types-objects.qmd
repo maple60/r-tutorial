@@ -1,0 +1,59 @@
+---
+title: "型とオブジェクト"
+# Purpose: Introduce common R object types and inspection functions.
+---
+
+{{< include ../_extensions/r-wasm/live/_knitr.qmd >}}
+
+Rの値には種類があります。数値、文字、論理値、カテゴリを表すfactorを
+まず知っておくと、データの確認が楽になります。
+
+## 数値・文字・論理値
+
+```{webr}
+#| autorun: true
+height_cm <- 2.1
+species <- "Arabidopsis thaliana"
+is_fertilized <- FALSE
+
+height_cm
+species
+is_fertilized
+```
+
+## class() で型を確認する
+
+`class()` は、オブジェクトの型を確認する関数です。
+
+```{webr}
+height_cm <- 2.1
+species <- "Arabidopsis thaliana"
+is_fertilized <- FALSE
+
+class(height_cm)
+class(species)
+class(is_fertilized)
+```
+
+## factor
+
+処理区や種名のようなカテゴリは、`factor()` で表せます。
+
+```{webr}
+treatment <- factor(c("control", "fertilized", "control"))
+
+treatment
+class(treatment)
+levels(treatment)
+```
+
+## str() で中身を見る
+
+`str()` は、オブジェクトの構造を短く表示します。
+データを読み込んだあとによく使います。
+
+```{webr}
+plants <- read.csv("data/plant_growth.csv")
+
+str(plants)
+```

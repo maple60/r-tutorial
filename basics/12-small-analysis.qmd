@@ -1,0 +1,78 @@
+---
+title: "小さな解析例"
+# Purpose: Combine CSV import, inspection, summaries, plotting, and a simple linear model.
+---
+
+{{< include ../_extensions/r-wasm/live/_knitr.qmd >}}
+
+最後に、これまでの内容をつなげて小さな解析の流れを試します。
+ここでは草丈が観察日とともにどう変わるかを見ます。
+
+## データを読み込んで確認する
+
+```{webr}
+#| autorun: true
+plants <- read.csv("data/plant_growth.csv")
+
+head(plants)
+str(plants)
+summary(plants$height_cm)
+```
+
+## グループごとの平均を出す
+
+```{webr}
+plants <- read.csv("data/plant_growth.csv")
+
+mean_by_treatment_day <- aggregate(
+  height_cm ~ treatment + day,
+  data = plants,
+  FUN = mean
+)
+
+mean_by_treatment_day
+```
+
+## 図で確認する
+
+```{webr}
+plants <- read.csv("data/plant_growth.csv")
+
+plot(
+  plants$day,
+  plants$height_cm,
+  pch = 19,
+  xlab = "Day",
+  ylab = "Height (cm)",
+  main = "Plant growth"
+)
+```
+
+## 簡単な線形モデル
+
+`lm()` は、直線的な関係を調べる関数です。
+ここでは、草丈を観察日で説明する簡単なモデルを作ります。
+
+```{webr}
+plants <- read.csv("data/plant_growth.csv")
+
+model <- lm(height_cm ~ day, data = plants)
+summary(model)
+```
+
+## 回帰直線を足す
+
+```{webr}
+plants <- read.csv("data/plant_growth.csv")
+model <- lm(height_cm ~ day, data = plants)
+
+plot(
+  plants$day,
+  plants$height_cm,
+  pch = 19,
+  xlab = "Day",
+  ylab = "Height (cm)",
+  main = "Plant growth with regression line"
+)
+abline(model, col = "blue", lwd = 2)
+```

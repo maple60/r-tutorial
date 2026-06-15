@@ -1,0 +1,47 @@
+---
+title: "練習：データフレーム"
+# Purpose: Practice data frame creation, inspection, column access, and indexing.
+---
+
+{{< include ../_extensions/r-wasm/live/_knitr.qmd >}}
+
+小さなデータフレームを作り、列や行を取り出します。
+
+## 課題
+
+- `data.frame()` で3行の植物データを作る。
+- `head()`、`str()`、`names()`、`dim()` を実行する。
+- `$` で草丈の列を取り出す。
+- 1行目を取り出す。
+- 植物IDと草丈だけを取り出す。
+
+## ヒント
+
+- 列名は `plant_id`、`treatment`、`height_cm` などにします。
+- 1行目は `df[1, ]` です。
+- 複数列は `c("plant_id", "height_cm")` で指定できます。
+
+## 作業用セル
+
+```{webr}
+# ここにコードを書いてみましょう
+```
+
+## 解答例
+
+```{webr}
+plants_small <- data.frame(
+  plant_id = c("P01", "P02", "P03"),
+  treatment = c("control", "control", "fertilized"),
+  height_cm = c(2.1, 4.8, 2.4)
+)
+
+head(plants_small)
+str(plants_small)
+names(plants_small)
+dim(plants_small)
+
+plants_small$height_cm
+plants_small[1, ]
+plants_small[, c("plant_id", "height_cm")]
+```

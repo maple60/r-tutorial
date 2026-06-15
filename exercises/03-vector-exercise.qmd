@@ -1,0 +1,42 @@
+---
+title: "練習：ベクトル"
+# Purpose: Practice vectors, length, indexing, and logical extraction.
+---
+
+{{< include ../_extensions/r-wasm/live/_knitr.qmd >}}
+
+草丈や葉数をベクトルにして、一部を取り出す練習です。
+
+## 課題
+
+- `height_cm` に `2.1, 4.8, 7.2, 2.4, 5.6, 8.9` を保存する。
+- ベクトルの長さを確認する。
+- 1番目と最後の値を取り出す。
+- 5 cm以上の草丈だけを取り出す。
+- 種名の文字ベクトルを作る。
+
+## ヒント
+
+- ベクトルは `c()` で作ります。
+- 最後の位置は `length(height_cm)` で指定できます。
+- 条件で取り出すときは `height_cm[height_cm >= 5]` の形です。
+
+## 作業用セル
+
+```{webr}
+# ここにコードを書いてみましょう
+```
+
+## 解答例
+
+```{webr}
+height_cm <- c(2.1, 4.8, 7.2, 2.4, 5.6, 8.9)
+
+length(height_cm)
+height_cm[1]
+height_cm[length(height_cm)]
+height_cm[height_cm >= 5]
+
+species <- c("Arabidopsis thaliana", "Arabidopsis thaliana", "Brassica rapa")
+species
+```

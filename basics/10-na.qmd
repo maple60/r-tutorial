@@ -1,0 +1,61 @@
+---
+title: "欠損値 NA の扱い"
+# Purpose: Teach NA, is.na, complete filtering, and na.rm.
+---
+
+{{< include ../_extensions/r-wasm/live/_knitr.qmd >}}
+
+データに値がない場所は、Rでは `NA` として表します。
+欠損値があると平均などの結果も `NA` になるため、確認が大切です。
+
+## NA を含むベクトル
+
+```{webr}
+#| autorun: true
+height_cm <- c(2.1, 4.8, NA, 2.4, 5.6)
+
+height_cm
+mean(height_cm)
+```
+
+## is.na() で確認する
+
+```{webr}
+height_cm <- c(2.1, 4.8, NA, 2.4, 5.6)
+
+is.na(height_cm)
+height_cm[is.na(height_cm)]
+```
+
+## 欠損していない値だけ使う
+
+`!is.na()` は「NAではない」という意味です。
+
+```{webr}
+height_cm <- c(2.1, 4.8, NA, 2.4, 5.6)
+
+height_cm[!is.na(height_cm)]
+mean(height_cm[!is.na(height_cm)])
+```
+
+## na.rm = TRUE
+
+多くの集計関数では、`na.rm = TRUE` でNAを除いて計算できます。
+
+```{webr}
+height_cm <- c(2.1, 4.8, NA, 2.4, 5.6)
+
+mean(height_cm, na.rm = TRUE)
+max(height_cm, na.rm = TRUE)
+```
+
+## データフレームで使う
+
+```{webr}
+plants <- read.csv("data/plant_growth.csv")
+plants$height_with_na <- plants$height_cm
+plants$height_with_na[c(3, 8)] <- NA
+
+plants[is.na(plants$height_with_na), ]
+plants[!is.na(plants$height_with_na), ]
+```

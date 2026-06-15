@@ -1,0 +1,65 @@
+---
+title: "練習：Base Rの作図"
+# Purpose: Practice basic Base R plots using the plant growth data.
+---
+
+{{< include ../_extensions/r-wasm/live/_knitr.qmd >}}
+
+植物成長データを使って、Base Rの作図を練習します。
+
+## 課題
+
+- 観察日と草丈の散布図を作る。
+- 草丈のヒストグラムを作る。
+- 処理区ごとの草丈の箱ひげ図を作る。
+- 処理区ごとの平均草丈を棒グラフにする。
+- 散布図に回帰直線を追加する。
+
+## ヒント
+
+- 散布図は `plot(x, y)` です。
+- 箱ひげ図は `boxplot(height_cm ~ treatment, data = plants)` です。
+- 回帰直線は `abline(lm(...))` で追加できます。
+
+## 作業用セル
+
+```{webr}
+# ここにコードを書いてみましょう
+```
+
+## 解答例
+
+```{webr}
+plants <- read.csv("data/plant_growth.csv")
+
+plot(
+  plants$day,
+  plants$height_cm,
+  pch = 19,
+  xlab = "Day",
+  ylab = "Height (cm)",
+  main = "Plant height"
+)
+
+hist(plants$height_cm, xlab = "Height (cm)", main = "Height distribution")
+
+boxplot(
+  height_cm ~ treatment,
+  data = plants,
+  xlab = "Treatment",
+  ylab = "Height (cm)",
+  main = "Height by treatment"
+)
+
+mean_height <- aggregate(height_cm ~ treatment, data = plants, FUN = mean)
+barplot(
+  mean_height$height_cm,
+  names.arg = mean_height$treatment,
+  xlab = "Treatment",
+  ylab = "Mean height (cm)",
+  main = "Mean height by treatment"
+)
+
+plot(plants$day, plants$height_cm, pch = 19, xlab = "Day", ylab = "Height (cm)")
+abline(lm(height_cm ~ day, data = plants), col = "blue", lwd = 2)
+```
