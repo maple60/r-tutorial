@@ -54,3 +54,7 @@ tall <- height_cm >= 15
 tall
 height_cm[tall]
 ```
+
+## 練習
+
+この内容を確認したら、[練習：ベクトル](../exercises/03-vector-exercise.qmd)に進んでください。

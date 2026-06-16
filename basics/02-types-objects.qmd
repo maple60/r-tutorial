@@ -57,3 +57,7 @@ plants <- read.csv("data/plant_growth.csv")
 
 str(plants)
 ```
+
+## 練習
+
+この内容を確認したら、[練習：型とオブジェクト](../exercises/02-types-objects-exercise.qmd)に進んでください。

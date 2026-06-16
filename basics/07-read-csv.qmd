@@ -49,3 +49,7 @@ mean(plants$height_cm)
 range(plants$day)
 table(plants$treatment)
 ```
+
+## 練習
+
+この内容を確認したら、[練習：CSVファイルの読み込み](../exercises/07-read-csv-exercise.qmd)に進んでください。

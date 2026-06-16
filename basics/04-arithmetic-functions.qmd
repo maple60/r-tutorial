@@ -54,3 +54,7 @@ height_cm <- c(2.1, 4.8, 7.2, 2.4, 5.6, 8.9)
 average_height <- mean(height_cm)
 round(average_height, 1)
 ```
+
+## 練習
+
+この内容を確認したら、[練習：四則演算と関数](../exercises/04-arithmetic-functions-exercise.qmd)に進んでください。

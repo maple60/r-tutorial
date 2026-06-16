@@ -44,3 +44,7 @@ plants <- read.csv("data/plant_growth.csv")
 
 tapply(plants$height_cm, plants$treatment, mean)
 ```
+
+## 練習
+
+この内容を確認したら、[練習：グループごとの集計](../exercises/09-aggregate-exercise.qmd)に進んでください。

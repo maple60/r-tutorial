@@ -55,3 +55,7 @@ plants[1, ]
 plants[1:3, c("plant_id", "height_cm")]
 plants[plants$day == 21, ]
 ```
+
+## 練習
+
+この内容を確認したら、[練習：データフレーム](../exercises/06-data-frame-exercise.qmd)に進んでください。

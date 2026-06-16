@@ -59,3 +59,7 @@ plants$height_with_na[c(3, 8)] <- NA
 plants[is.na(plants$height_with_na), ]
 plants[!is.na(plants$height_with_na), ]
 ```
+
+## 練習
+
+この内容を確認したら、[練習：欠損値 NA の扱い](../exercises/10-na-exercise.qmd)に進んでください。

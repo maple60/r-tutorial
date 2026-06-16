@@ -52,3 +52,7 @@ height_cm <- c(2.1, 4.8, 2.4, 5.6)
 
 height_cm[treatment == "fertilized"]
 ```
+
+## 練習
+
+この内容を確認したら、[練習：条件式と論理値](../exercises/05-logical-exercise.qmd)に進んでください。

@@ -58,3 +58,7 @@ plants <- read.csv("data/plant_growth.csv")
 
 subset(plants, treatment == "control" & day == 14)
 ```
+
+## 練習
+
+この内容を確認したら、[練習：データの取り出し・絞り込み](../exercises/08-subset-exercise.qmd)に進んでください。

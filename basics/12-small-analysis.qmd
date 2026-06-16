@@ -76,3 +76,7 @@ plot(
 )
 abline(model, col = "blue", lwd = 2)
 ```
+
+## 練習
+
+この内容を確認したら、[練習：小さな解析例](../exercises/12-small-analysis-exercise.qmd)に進んでください。

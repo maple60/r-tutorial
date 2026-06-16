@@ -85,3 +85,7 @@ plot(
 points(plants$day, plants$height_cm, pch = 1, col = "gray40")
 abline(lm(height_cm ~ day, data = plants), col = "blue", lwd = 2)
 ```
+
+## 練習
+
+この内容を確認したら、[練習：Base Rの作図](../exercises/11-base-plot-exercise.qmd)に進んでください。

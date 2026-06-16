@@ -69,3 +69,7 @@ height_cm <- 2.1
 plant_id
 height_cm
 ```
+
+## 練習
+
+この内容を確認したら、[練習：Rの基本操作](../exercises/01-basic-operation-exercise.qmd)に進んでください。

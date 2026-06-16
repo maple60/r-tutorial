@@ -6,32 +6,38 @@ project:
 book:
   title: "生態学・植物科学のためのBase R"
   search: true
+  sidebar:
+    collapse-level: 1
   chapters:
     - index.qmd
-    - basics/01-basic-operation.qmd
-    - exercises/01-basic-operation-exercise.qmd
-    - basics/02-types-objects.qmd
-    - exercises/02-types-objects-exercise.qmd
-    - basics/03-vector.qmd
-    - exercises/03-vector-exercise.qmd
-    - basics/04-arithmetic-functions.qmd
-    - exercises/04-arithmetic-functions-exercise.qmd
-    - basics/05-logical.qmd
-    - exercises/05-logical-exercise.qmd
-    - basics/06-data-frame.qmd
-    - exercises/06-data-frame-exercise.qmd
-    - basics/07-read-csv.qmd
-    - exercises/07-read-csv-exercise.qmd
-    - basics/08-subset.qmd
-    - exercises/08-subset-exercise.qmd
-    - basics/09-aggregate.qmd
-    - exercises/09-aggregate-exercise.qmd
-    - basics/10-na.qmd
-    - exercises/10-na-exercise.qmd
-    - basics/11-base-plot.qmd
-    - exercises/11-base-plot-exercise.qmd
-    - basics/12-small-analysis.qmd
-    - exercises/12-small-analysis-exercise.qmd
+    - part: "解説"
+      chapters:
+        - basics/01-basic-operation.qmd
+        - basics/02-types-objects.qmd
+        - basics/03-vector.qmd
+        - basics/04-arithmetic-functions.qmd
+        - basics/05-logical.qmd
+        - basics/06-data-frame.qmd
+        - basics/07-read-csv.qmd
+        - basics/08-subset.qmd
+        - basics/09-aggregate.qmd
+        - basics/10-na.qmd
+        - basics/11-base-plot.qmd
+        - basics/12-small-analysis.qmd
+    - part: "練習"
+      chapters:
+        - exercises/01-basic-operation-exercise.qmd
+        - exercises/02-types-objects-exercise.qmd
+        - exercises/03-vector-exercise.qmd
+        - exercises/04-arithmetic-functions-exercise.qmd
+        - exercises/05-logical-exercise.qmd
+        - exercises/06-data-frame-exercise.qmd
+        - exercises/07-read-csv-exercise.qmd
+        - exercises/08-subset-exercise.qmd
+        - exercises/09-aggregate-exercise.qmd
+        - exercises/10-na-exercise.qmd
+        - exercises/11-base-plot-exercise.qmd
+        - exercises/12-small-analysis-exercise.qmd
 
 format:
   live-html:
