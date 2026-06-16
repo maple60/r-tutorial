@@ -14,12 +14,15 @@ title: "練習：Base Rの作図"
 - 処理区ごとの草丈の箱ひげ図を作る。
 - 処理区ごとの平均草丈を棒グラフにする。
 - 散布図に回帰直線を追加する。
+- 処理区ごとの平均草丈を線で重ねる。
 
 ## ヒント
 
 - 散布図は `plot(x, y)` です。
 - 箱ひげ図は `boxplot(height_cm ~ treatment, data = plants)` です。
 - 回帰直線は `abline(lm(...))` で追加できます。
+- 線を重ねるときは、最初に `plot()` で土台を作り、次に `lines()` を使います。
+- 凡例は `legend()` で追加できます。
 
 ## 作業用セル
 
@@ -62,4 +65,38 @@ barplot(
 
 plot(plants$day, plants$height_cm, pch = 19, xlab = "Day", ylab = "Height (cm)")
 abline(lm(height_cm ~ day, data = plants), col = "blue", lwd = 2)
+
+control <- subset(plants, treatment == "control")
+fertilized <- subset(plants, treatment == "fertilized")
+
+control_mean <- aggregate(height_cm ~ day, data = control, FUN = mean)
+fertilized_mean <- aggregate(height_cm ~ day, data = fertilized, FUN = mean)
+
+plot(
+  control_mean$day,
+  control_mean$height_cm,
+  type = "b",
+  pch = 19,
+  col = "steelblue",
+  ylim = range(control_mean$height_cm, fertilized_mean$height_cm),
+  xlab = "Day",
+  ylab = "Mean height (cm)",
+  main = "Mean height by treatment"
+)
+lines(
+  fertilized_mean$day,
+  fertilized_mean$height_cm,
+  type = "b",
+  pch = 17,
+  col = "tomato",
+  lwd = 2
+)
+legend(
+  "topleft",
+  legend = c("control", "fertilized"),
+  col = c("steelblue", "tomato"),
+  pch = c(19, 17),
+  lwd = 2,
+  bty = "n"
+)
 ```

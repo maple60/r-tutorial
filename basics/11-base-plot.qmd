@@ -8,6 +8,10 @@ title: "Base Rの作図"
 Base Rの作図関数は、データを素早く確認したいときに便利です。
 ここでは `plot()`、`hist()`、`boxplot()`、`barplot()` を使います。
 
+Base Rの作図では、まず `plot()` などの高水準作図関数で図の土台を作ります。
+その後で `points()`、`lines()`、`abline()`、`legend()` などの低級描画関数を使い、必要な情報を重ねていきます。
+この「土台を作る、あとから重ねる」という考え方を覚えると、探索的な図を柔軟に作れます。
+
 ## 散布図
 
 ```{webr}
@@ -34,6 +38,9 @@ legend(
 )
 ```
 
+`plot()` は、x軸とy軸の変数を指定して図を作る基本の関数です。
+`pch` は点の形、`col` は色、`xlab` と `ylab` は軸ラベル、`main` はタイトルを指定します。
+
 ## ヒストグラムと箱ひげ図
 
 ```{webr}
@@ -54,6 +61,9 @@ boxplot(
 )
 ```
 
+`hist()` は1つの数値変数の分布、`boxplot()` はグループごとの分布を確認するのに向いています。
+散布図とは違う見方で、同じデータの特徴を確認できます。
+
 ## 棒グラフ
 
 ```{webr}
@@ -69,7 +79,81 @@ barplot(
 )
 ```
 
-## 点と線を足す
+棒グラフでは、先に `aggregate()` で平均などの要約値を作ってから `barplot()` に渡すことがよくあります。
+個々の観測値ではなく、処理区ごとの代表値を見たいときに便利です。
+
+## `plot()`で線の土台を作る
+
+`plot()` は散布図だけでなく、`type` を指定すると線や点線の図も作れます。
+ここでは観察日ごとの平均草丈を作り、点と線で表示します。
+
+```{webr}
+plants <- read.csv("data/plant_growth.csv")
+
+mean_by_day <- aggregate(height_cm ~ day, data = plants, FUN = mean)
+
+plot(
+  mean_by_day$day,
+  mean_by_day$height_cm,
+  type = "b",
+  pch = 19,
+  lwd = 2,
+  xlab = "Day",
+  ylab = "Mean height (cm)",
+  main = "Mean height through time"
+)
+```
+
+`type = "p"` は点、`type = "l"` は線、`type = "b"` は点と線を描きます。
+時系列や成長の変化を見たいときは、点だけでなく線も使うと傾向が読みやすくなります。
+
+## 低級描画関数でレイヤを重ねる
+
+低級描画関数は、すでにある図の上に要素を追加します。
+代表的な関数には、点を足す `points()`、線を足す `lines()`、直線を足す `abline()`、凡例を足す `legend()` があります。
+
+```{webr}
+plants <- read.csv("data/plant_growth.csv")
+
+control <- subset(plants, treatment == "control")
+fertilized <- subset(plants, treatment == "fertilized")
+
+control_mean <- aggregate(height_cm ~ day, data = control, FUN = mean)
+fertilized_mean <- aggregate(height_cm ~ day, data = fertilized, FUN = mean)
+
+plot(
+  control_mean$day,
+  control_mean$height_cm,
+  type = "b",
+  pch = 19,
+  col = "steelblue",
+  ylim = range(control_mean$height_cm, fertilized_mean$height_cm),
+  xlab = "Day",
+  ylab = "Mean height (cm)",
+  main = "Mean height by treatment"
+)
+lines(
+  fertilized_mean$day,
+  fertilized_mean$height_cm,
+  type = "b",
+  pch = 17,
+  col = "tomato",
+  lwd = 2
+)
+legend(
+  "topleft",
+  legend = c("control", "fertilized"),
+  col = c("steelblue", "tomato"),
+  pch = c(19, 17),
+  lwd = 2,
+  bty = "n"
+)
+```
+
+この例では、最初の `plot()` で control の平均草丈を描き、あとから `lines()` で fertilized を重ねています。
+複数の系列を重ねるときは、最初の `plot()` で `ylim` を広めに指定しておくと、あとから足した線が図の外にはみ出しにくくなります。
+
+## 回帰直線や注釈を足す
 
 ```{webr}
 plants <- read.csv("data/plant_growth.csv")
@@ -84,7 +168,12 @@ plot(
 )
 points(plants$day, plants$height_cm, pch = 1, col = "gray40")
 abline(lm(height_cm ~ day, data = plants), col = "blue", lwd = 2)
+text(7, max(plants$height_cm), labels = "start", pos = 4)
 ```
+
+`abline()` は水平線、垂直線、回帰直線などを足すときに使います。
+`text()` を使うと、図の中に短い注釈を入れられます。
+ただし注釈を入れすぎると読みにくくなるので、最初は重要な点だけに絞ります。
 
 ## 練習
 
